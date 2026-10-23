@@ -1,0 +1,18 @@
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    .nav-logo{
+        display:block;
+        width:40px;
+        aspect-ratio:1 / 1;
+        border:1px solid;
+    }
+
+    .nav-list{
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
+}

@@ -1,0 +1,26 @@
+:root{
+  /* colors */
+  --clr-700: rgba(0, 0, 0, 1);
+}
+html{
+  font-size:100%;
+}
+*,*::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  font-family: "DM Sans", sans-serif;
+}
+ul{
+  list-style:none;
+}
+a{
+  text-decoration:none;
+  color:var(--clr-700);
+}
+.layout-wrapper{
+  width:min(90rem, calc(100% - 4rem));
+  margin-inline:auto;
+}
