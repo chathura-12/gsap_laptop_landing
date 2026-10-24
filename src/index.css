@@ -1,6 +1,11 @@
 :root{
   /* colors */
+  --clr-100: rgba(255, 255, 255, 1);
   --clr-700: rgba(0, 0, 0, 1);
+
+  /* paddings */
+  --py-pri-btn:0.6rem;
+  --px-pri-btn:1.8rem;
 }
 html{
   font-size:100%;
@@ -19,6 +24,12 @@ ul{
 a{
   text-decoration:none;
   color:var(--clr-700);
+}
+button{
+  border:0;
+  outline:0;
+  padding:var(--py-pri-btn) var(--px-pri-btn);
+  cursor:pointer;
 }
 .layout-wrapper{
   width:min(90rem, calc(100% - 4rem));
