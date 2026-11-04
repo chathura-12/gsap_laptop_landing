@@ -1,6 +1,8 @@
 :root{
   /* colors */
   --clr-100: rgba(255, 255, 255, 1);
+  --clr-300: hsl(211, 100%, 47%);
+  --clr-600: rgba(40, 40, 40, 0.8);
   --clr-700: rgba(0, 0, 0, 1);
 
   /* paddings */
@@ -17,6 +19,8 @@ html{
 }
 body{
   font-family: "DM Sans", sans-serif;
+  background:hsl(220, 15%, 8%);
+  color:var(--clr-100);
 }
 ul{
   list-style:none;
@@ -34,4 +38,13 @@ button{
 .layout-wrapper{
   width:min(90rem, calc(100% - 4rem));
   margin-inline:auto;
+}
+.button{
+  border:none;
+  outline:none;
+  border-radius:10px;
+  font-size:1rem;
+  background:var(--clr-300);
+  color:var(--clr-100);
+  font-weight:600;
 }
