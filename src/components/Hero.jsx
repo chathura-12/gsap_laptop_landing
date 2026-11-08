@@ -5,18 +5,22 @@ const Hero = () => {
   const videoRef = useRef();
 
   useEffect(() => {
-    if (videoRef.current) videoRef.current.playbackRate = 0.5;
+    if (videoRef.current) videoRef.current.playbackRate = 0.6;
   }, [])
 
   return (
-    <section className="hero layout-wrapper">
+    <section id="hero" className="layout-wrapper">
       <div className="hero-title">
-        <h2>AetherPad Pro</h2>
-        <img className="hero-mainTitle" src="/title.svg" alt="title" />
+        <h3>AetherPad Pro</h3>
+        <h1>Engineered for Thinkers</h1>
       </div>
-      <video ref={videoRef} className="hero-media" src="/background.mkv" autoPlay muted playsInline/>
-      <button className="button">Buy</button>
-      <p>From $1500 or $130/mo for 12 months</p>
+      <div className="media">
+        <video ref={videoRef} className="hero-video" src="/background.mkv" autoPlay muted playsInline/>
+      </div>
+      <div className="item-content">
+        <button className="button">Buy</button>
+        <p>From $1500 or $130/mo for 12 months</p>
+      </div>
     </section>
   )
 }

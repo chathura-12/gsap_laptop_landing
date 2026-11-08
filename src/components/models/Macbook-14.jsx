@@ -1,9 +1,12 @@
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { useEffect } from 'react'
 import { noChangeParts } from '../../constants'
 
 export default function MacbookModel14({color, ...props}) {
   const { nodes, materials, scene } = useGLTF('/models/macbook-14-transformed.glb')
+
+  const texture = useTexture('/screen.jpeg')
+  texture.flipY = false
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -17,11 +20,13 @@ export default function MacbookModel14({color, ...props}) {
 
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Base_1.geometry} material={materials.PaletteMaterial003} />
+      <mesh geometry={nodes.Base_1.geometry} material={materials.PaletteMaterial003}/>
       <mesh geometry={nodes.Base_2.geometry} material={materials.keyboard} />
-      <mesh geometry={nodes.Base_3.geometry} material={materials.PaletteMaterial002} />
-      <mesh geometry={nodes.Monitor_1.geometry} material={materials.PaletteMaterial001} />
-      <mesh geometry={nodes.Monitor_2.geometry} material={materials.screen} />
+      <mesh geometry={nodes.Base_3.geometry} material={materials.PaletteMaterial002}/>
+      <mesh geometry={nodes.Monitor_1.geometry} material={materials.PaletteMaterial001}/>
+      <mesh geometry={nodes.Monitor_2.geometry}>
+        <meshBasicMaterial map={texture}/>
+      </mesh>
       <mesh geometry={nodes.Monitor_3.geometry} material={materials.logo} />
     </group>
   )

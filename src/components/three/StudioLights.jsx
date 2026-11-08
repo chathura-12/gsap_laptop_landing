@@ -30,7 +30,7 @@ const StudioLights = () => {
                 <Lightformer
                     form="rect"
                     intensity={2}
-                    position={[0, 2, 6]}
+                    position={[4, 2, 6]}
                     scale={10}
                     rotation-y={Math.PI / 2}
                 />

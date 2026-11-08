@@ -10,12 +10,19 @@ const OFFSET_DISTANCE = 5;
 
 const fadeMeshes = (group, opacity) => {
     if(!group) return;
-    group.traverse((child) => {
-        if(child.isMesh){
-            child.material.transparent = true;
-            gsap.to(child.material, {opacity, duration:ANIMATION_DURATION})
+    const dummy = { visiblePercent: group.visible ? 1 : 0 };
+
+    gsap.to(dummy, {
+        visiblePercent: opacity,
+        duration: ANIMATION_DURATION,
+        onUpdate: () => {
+            if (dummy.visiblePercent < 0.5) {
+                group.visible = false;
+            } else {
+                group.visible = true;
+            }
         }
-    })
+    });
 }
 
 const MoveGroup = (group, x) => {
@@ -28,7 +35,7 @@ const ModelSwitcher = ({color, scale, size}) => {
     const smallRef = useRef();
     const largeRef = useRef();
 
-    const showLarge = size === 0.08
+    const showLarge = size === 0.8
 
     useGSAP(() => {
         if(showLarge) {
@@ -59,12 +66,12 @@ const ModelSwitcher = ({color, scale, size}) => {
         <>
             <PresentationControls {...controlsConfig}>
                 <group ref={largeRef}>
-                    <MacbookModel16 color={color} scale={scale} position={[0, -0, 1]}/>
+                    <MacbookModel16 color={color} scale={scale} position={[0, -0.5, 1]}/>
                 </group>
             </PresentationControls>
             <PresentationControls {...controlsConfig}>
                 <group ref={smallRef}>
-                    <MacbookModel14 color={color} scale={scale} position={[0, -0, 1]}/>
+                    <MacbookModel14 color={color} scale={scale} position={[0, -0.5, 1]}/>
                 </group>
             </PresentationControls>
         </>

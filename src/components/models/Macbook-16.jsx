@@ -1,19 +1,23 @@
-import { useGLTF } from '@react-three/drei';
+import { useGLTF, useTexture } from '@react-three/drei';
 import { useEffect } from 'react';
 import { noChangeParts } from '../../constants';
 
 export default function MacbookModel16({color, ...props}) {
-  const { nodes, materials, scene} = useGLTF('/models/macbook-16-transformed.glb')
+  const { nodes, materials, scene } = useGLTF('/models/macbook-16-transformed.glb')
+
+  const texture = useTexture('/screen.jpeg')
+  texture.flipY = false
 
   useEffect(() => {
-      scene.traverse((child) => {
-        if(child.isMesh){
-          if(!noChangeParts.includes(child.name)){
-            child.material.color.set(color)
-          }
+    scene.traverse((child) => {
+      if(child.isMesh){
+        if(!noChangeParts.includes(child.name)){
+          child.material.color.set(color)
         }
-      })
-    }, [color])
+      }
+    })
+  }, [color, scene])
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.BasePanel_1.geometry} material={materials.chargerPort} />
@@ -23,7 +27,9 @@ export default function MacbookModel16({color, ...props}) {
       <mesh geometry={nodes.BasePanel_5.geometry} material={materials.SoundPanel} />
       <mesh geometry={nodes.BasePanel_6.geometry} material={materials.PaletteMaterial002}/>
       <mesh geometry={nodes.Monitor_1.geometry} material={materials.PaletteMaterial001} />
-      <mesh geometry={nodes.Monitor_2.geometry} material={materials.screen} />
+      <mesh geometry={nodes.Monitor_2.geometry}>
+        <meshBasicMaterial map={texture}/>
+      </mesh>
       <mesh geometry={nodes.Monitor_3.geometry} material={materials.Logo} />
     </group>
   )

@@ -1,0 +1,25 @@
+#features{
+    position:relative;
+    min-height:100vh;
+    .contents{
+        position:absolute;
+        inset:0;
+        width:100%;
+    }
+    .feature{
+        position:absolute;
+        width:24ch;
+        overflow-wrap:break-word;
+        line-height:1.2;
+        transform:translateY(20%);
+        opacity:0;
+        color:#8e8d8d;
+    }
+    .highlight-text{
+        color:var(--clr-100);
+    }
+    #f-canvas-wrapper{
+        width: 100%;
+        min-height: 100svh;
+    }
+}

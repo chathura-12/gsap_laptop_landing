@@ -1,0 +1,32 @@
+#performance{
+    .wrapper{
+        position:relative;
+        width:100%;
+        height:100svh;
+    }
+    .perf-img{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%, -50%);
+        width:24%;
+        object-fit:cover;
+        object-position:center;
+        pointer-events:none;
+    }
+    .p1{
+        width:40%;
+    }
+    .p3{
+        right:0;
+    }
+    .content{
+        margin-top:2rem;
+    }
+    .description{
+        width:50%;
+        margin-inline:auto;
+        align-content:center;
+        text-align:center;
+    }
+}
