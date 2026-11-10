@@ -25,9 +25,9 @@ body{
 }
 p{
   font-size: clamp(0.875rem, 0.60rem + 1.33vw, 1.25rem);
-  font-weight:400;
+  font-weight:600;
   text-wrap-style:balance;
-  color:#58585C;
+  color:#787879;
   cursor:default;
 }
 ul{
@@ -49,6 +49,10 @@ h2{
 h3{
   font-size:clamp(1rem, 0.7rem + 1.5vw, 2.5rem);
   font-weight:600;
+}
+h4{
+  font-size: clamp(1rem, 0.84rem + 0.8vw, 1.8rem);
+  font-weight:500;
 }
 button{
   border:0;

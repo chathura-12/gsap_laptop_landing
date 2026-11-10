@@ -6,7 +6,6 @@ import StudioLights from "./three/StudioLights";
 import ModelSwitcher from "./three/ModelSwitcher";
 import { useMediaQuery } from "react-responsive";
 import { useModelStatus } from "../constants";
-import { use } from "react";
 
 const ProductViewer = () => {
     const {silver, model14, model16, spaceDark} = useModelStatus
@@ -16,11 +15,9 @@ const ProductViewer = () => {
 
     useModelStatus.setModelColor = color;
 
-    const isSmallLaptop = useMediaQuery({query: '(max-width:1024px)'})
     const isTablet = useMediaQuery({query: '(max-width:768px)'})
-    const isMobile = useMediaQuery({query: '(max-width:480px)'})
 
-    const modelSize = isMobile ? 0.3 : isTablet ? 0.5 : isSmallLaptop ? 0.7 : 0.7;
+    const modelSize = isTablet ? 0.5 : 0.6;
 
   return (
     <section id='product-viewer' className='layout-wrapper m-top'>
@@ -55,14 +52,16 @@ const ProductViewer = () => {
                 </div>
             </div>
         </div>
-        <Canvas
-            id="product-canvas" camera={{position: [0, 2, 5], fov: 50, near: 0.1, far: 100}}
-            onCreated={({gl}) => {
-                gl.setSize(window.innerWidth, window.innerHeight);
-            }}>
-            <StudioLights />
-            <ModelSwitcher color={color} scale={modelSize} size={size}/>
-        </Canvas>
+        <div className="product-container">
+            <Canvas
+                id="product-canvas" camera={{position: [0, 2, 5], fov: 50, near: 0.1, far: 100}}
+                onCreated={({gl}) => {
+                    gl.setSize(window.innerWidth, window.innerHeight);
+                }}>
+                <StudioLights />
+                <ModelSwitcher color={color} scale={modelSize} size={size}/>
+            </Canvas>
+        </div>
     </section>
   )
 }

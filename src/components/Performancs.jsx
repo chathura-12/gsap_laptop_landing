@@ -13,9 +13,9 @@ const Performancs = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top bottom",
-                end: "bottom 80%",
+                end: "25% top",
                 scrub: 1,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
             }
         })
 
@@ -32,17 +32,17 @@ const Performancs = () => {
         })
     }, {scope:containerRef})
   return (
-    <section ref={containerRef} id="performance" className="layout-wrapper">
+    <section ref={containerRef} id="performance" className="m-top layout-wrapper">
         <div className='heading-main'>
-            <h1>Next Level Graphic Performance.</h1>
-            <h1>Game On.</h1>
+            <h2>Next Level Graphic Performance.</h2>
+            <h2>Game On.</h2>
         </div>
         <div className="wrapper">
             {performanceImages.map((image) => (
                 <img className={`perf-img ${image.id}`} key={image.id} src={image.src} alt={image.id} />
             ))}
         </div>
-        <div className="content">
+        <div className="perf-content">
             <p className="description"><span className="highlight-text">Run graphics-intensive workflows with responsiveness</span> that keeps up with your imagination.
             Each chip features a GPU with enhanced shader cores and a third-generation ray‑tracing engine,
             so 3D modeling is crisper and clearer than ever. And Dynamic Caching optimizes on-chip memory to

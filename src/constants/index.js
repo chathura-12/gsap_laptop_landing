@@ -1,7 +1,7 @@
 export const navLinks = [
     { label: "Store" },
-    { label: "Mac" },
-    { label: "iPhone" },
+    { label: "AetherPad" },
+    { label: "APhone" },
     { label: "Watch" },
     { label: "Vision" },
     { label: "AirPods" },
@@ -29,7 +29,7 @@ export const useModelStatus = {
 }
 
 export const performanceImages = [
-    { id: "p1", src : "/picture/performance_1.jpg"},
+    { id: "p1", src : "/picture/performance_1.png"},
     { id: "p2", src : "/picture/performance_2.jpg"},
     { id: "p3", src : "/picture/performance_3.jpg"},
     { id: "p4", src : "/picture/performance_4.jpg"},

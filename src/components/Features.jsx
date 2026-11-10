@@ -58,17 +58,16 @@ const ModelScroll = () => {
 
 const Features = () => {
   return (
-    <section id='features' className='layout-wrapper'>
+    <section id='features' className='layout-wrapper m-top'>
       <div className="heading-main">
-        <h1>See it all in a new light.</h1>
+        <h2>See it all in a new light.</h2>
       </div>
       <div id='f-canvas-wrapper'>
         <Canvas
-          style={{width: '100%', height: '100%'}}
+          style={{width: '100%', height: '200%'}}
           id='f-canvas' camera={{position: [0, 2, 5], fov: 50, near: 0.1, far: 100}}
           onCreated={({gl}) => {
             gl.setSize(window.innerWidth, window.innerHeight);
-            gsap.plugins.scrollTrigger?.refresh();
           }}>
           <StudioLights />
           <ambientLight intensity={0.5}/>

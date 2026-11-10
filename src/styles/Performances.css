@@ -1,8 +1,9 @@
 #performance{
+    height:auto;
     .wrapper{
         position:relative;
         width:100%;
-        height:100svh;
+        height:100vh;
     }
     .perf-img{
         position:absolute;
@@ -17,16 +18,28 @@
     .p1{
         width:40%;
     }
-    .p3{
-        right:0;
-    }
-    .content{
-        margin-top:2rem;
+    .perf-content{
+        margin-block:4rem;
     }
     .description{
         width:50%;
         margin-inline:auto;
         align-content:center;
         text-align:center;
+        text-wrap-style:pretty;
+    }
+    @media(max-width: 768px){
+        .wrapper{
+            height:80svh;
+        }
+        .perf-img{
+            width:40%;
+        }
+        .p1{
+            width:50%;
+        }
+        .description{
+            width:90%;
+        }
     }
 }
