@@ -1,5 +1,8 @@
 #performance{
     height:auto;
+    .heading-main{
+        cursor:default;
+    }
     .wrapper{
         position:relative;
         width:100%;

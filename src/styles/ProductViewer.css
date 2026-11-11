@@ -8,6 +8,7 @@
         width:100%;
         text-align:start;
         margin-bottom:2rem;
+        cursor:default;
     }
     .product-control{
         position:absolute;
@@ -68,5 +69,9 @@
     @media(max-width:768px){
         min-height:auto;
         padding-bottom:4rem;
+
+        .heading{
+            text-align:center;
+        }
     }
 }

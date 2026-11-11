@@ -9,75 +9,93 @@ import { useMediaQuery } from 'react-responsive'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap';
 
-const ModelScroll = () => {
-  const groupRef = useRef(null);
-  const isMobile = useMediaQuery({query: '(max-width: 1024px)'})
-
+const ModelScroll = ({ scale }) => {
+  const groupRef = useRef(null)
   useGSAP(() => {
-    const modelTimeline = gsap.timeline({
-      scrollTrigger:{
-        trigger: '#f-canvas',
-        start:'top top',
-        end:'bottom top',
-        scrub: 1,
-        pin:true,
-        pinSpacing: true,
-        invalidateOnRefresh: true
-      }
-    })
-
-    const timeline = gsap.timeline({
-      defaults:{duration: .5, ease: 'power1.in'},
-      scrollTrigger:{
-        trigger: '#f-canvas',
-        start:'top top',
-        end:'bottom top',
+    gsap.to(groupRef.current.rotation, {
+      y: Math.PI * 2,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: '.features-container',
+        start: 'top top',
+        end: '+=2500',
         scrub: 1,
       }
-    })
-
-    if(groupRef.current) {
-      modelTimeline.to(groupRef.current.rotation, {y: Math.PI * 2, ease:"power1.inOut"})
-    }
-
-    timeline
-      .to('.feature_1', {opacity: 1, yPercent: -20})
-      .to('.feature_2', {opacity: 1, yPercent: -20}, "+=.5")
-      .to('.feature_3', {opacity: 1, yPercent: -20}, "+=.5")
-      .to('.feature_4', {opacity: 1, yPercent: -20}, "+=.5")
+    });
   }, [])
-
   return(
-    <group ref={groupRef}>
+    <group ref={groupRef} >
         <Suspense fallback={<Html><h2>Loading...</h2></Html>}>
-          <Macbook scale={isMobile ? 0.2 : 0.6} position={[0, -1, 0]}/>
+          <Macbook scale={scale} position={[0, -1, 0]}/>
         </Suspense>
     </group>
   )
 }
 
 const Features = () => {
+  const containerRef = useRef(null)
+  const isSmallLaptop = useMediaQuery({query: '(max-width: 1024px)'})
+  const isTablet = useMediaQuery({query: '(max-width: 768px'})
+  const isMobile = useMediaQuery({query: '(max-width: 480px)'})
+
+  const scale = isMobile ? 0.4 : isTablet ? 0.5 : isSmallLaptop ? 0.6 : 0.7;
+
+  useGSAP(() => {
+    gsap.to('.features-container',{
+      scrollTrigger:{
+        trigger: '.features-container',
+        start:'top top',
+        end:'+=2500',
+        scrub: 1,
+        pin:true,
+        pinSpacing: true,
+        invalidateOnRefresh: true,
+      }
+    })
+
+    const timeline = gsap.timeline({
+      defaults:{duration: .5, ease: 'power1.in'},
+      scrollTrigger:{
+        trigger: '.features-container',
+        start:'top top',
+        end:'bottom top',
+        scrub: 1,
+      }
+    })
+
+    timeline
+      .to('.box_1', {opacity: 1, yPercent: -20})
+      .to('.box_2', {opacity: 1, yPercent: -20}, "+=.5")
+      .to('.box_3', {opacity: 1, yPercent: -20}, "+=.5")
+      .to('.box_4', {opacity: 1, yPercent: -20}, "+=.5")
+
+  }, {scope:containerRef})
+
   return (
-    <section id='features' className='layout-wrapper m-top'>
+    <section ref={containerRef} id='features' className='layout-wrapper m-top'>
       <div className="heading-main">
         <h2>See it all in a new light.</h2>
       </div>
-      <div id='f-canvas-wrapper'>
+      <div className='features-container'>
         <Canvas
-          style={{width: '100%', height: '200%'}}
+          style={{width: '100%', height: '100%'}}
           id='f-canvas' camera={{position: [0, 2, 5], fov: 50, near: 0.1, far: 100}}
           onCreated={({gl}) => {
             gl.setSize(window.innerWidth, window.innerHeight);
-          }}>
+          }}
+          >
           <StudioLights />
           <ambientLight intensity={0.5}/>
-          <ModelScroll />
-        </Canvas>  
+          <ModelScroll scale={scale}/>
+        </Canvas>
       </div>
       <div className="contents">
-        {features.map((feature) => 
-          <div key={feature.id}>
-            <p className={`feature_${feature.id} feature`} style={{...feature.style}}>
+        {features.map((feature) =>
+          <div className={`box_${feature.id} box`} key={feature.id} style={{...feature.style}}>
+            <div className="icon">
+              <img src={feature.image} alt={feature.highlight} />
+            </div>
+            <p className="feature">
             <span className='highlight-text'>{feature.highlight}{" "}</span>{feature.text}</p>
           </div>
         )}

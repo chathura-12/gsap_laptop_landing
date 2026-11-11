@@ -54,6 +54,7 @@ const ProductViewer = () => {
         </div>
         <div className="product-container">
             <Canvas
+                style={{touchAction:'none'}}
                 id="product-canvas" camera={{position: [0, 2, 5], fov: 50, near: 0.1, far: 100}}
                 onCreated={({gl}) => {
                     gl.setSize(window.innerWidth, window.innerHeight);

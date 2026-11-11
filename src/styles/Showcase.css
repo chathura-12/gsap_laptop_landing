@@ -2,6 +2,7 @@
     padding-bottom:4rem;
     .heading{
        margin-bottom: clamp(1rem, -2.34rem + 16.73vw, 6rem);
+       cursor:default;
     }
     .showcase-media{
         width:100%;
@@ -57,6 +58,7 @@
             width:20ch;
             text-align:start;
             text-wrap-style:pretty;
+            cursor:default;
             @media(max-width: 768px){
                 width:100%;
                 text-align:center;

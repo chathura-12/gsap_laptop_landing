@@ -53,24 +53,28 @@ export const features = [
         id:1,
         highlight: "Email AI.",
         text: "Summerize and draft replies to emails instanly, so you stay on top of your inbox.",
-        style:{top: '20%', left: 0}
+        style:{top: '20%', left: 0},
+        image:"/icons/email.svg"
     },
     {
         id:2,
         highlight: "Image AI.",
         text: "Generate or edit images with ease, Just type what you imagine, and let AI bring it to life",
-        style:{top: '40%', right: 0}
+        style:{top: '40%', right: 0},
+        image:"/icons/imageAi.svg"
     },
     {
         id:3,
         highlight: "Summersize AI.",
         text: "Turn long articles reports, or notes into clear, bite-sized summeries in seconds",
-        style:{top: '60%', left: 0}
+        style:{top: '60%', left: 0},
+        image:"/icons/askAi.svg"
     },
     {
         id:4,
         highlight: "AirDrop.",
         text: "Wirelessly share photos, Large files, and more between your devices",
-        style:{top: '90%', right: 0}
+        style:{top: '95%', right: 0},
+        image:"/icons/airdrop.svg"
     }
 ]
