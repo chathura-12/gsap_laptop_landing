@@ -3,6 +3,7 @@
     .heading{
        margin-bottom: clamp(1rem, -2.34rem + 16.73vw, 6rem);
        cursor:default;
+       text-align:center;
     }
     .showcase-media{
         width:100%;

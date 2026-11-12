@@ -57,7 +57,7 @@ const Showcase = () => {
   return (
     <section id='showcase' className='m-top layout-wrapper'>
       <div className="heading">
-        <p className='heading-label'>Performance</p>
+        <h4 className='heading-label'>Performance</h4>
         <div className='heading-main'>
           <h2>M4 Pro. Unmatched.</h2>
           <h2>Power players.</h2>

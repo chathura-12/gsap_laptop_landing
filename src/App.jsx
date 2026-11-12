@@ -4,6 +4,7 @@ import ProductViewer from "./components/ProductViewer";
 import Showcase from "./components/Showcase";
 import Performancs from "./components/Performancs";
 import Features from "./components/Features";
+import Highlights from "./components/Highlights";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ReactLenis, useLenis } from "lenis/react";
@@ -48,6 +49,7 @@ const App = () => {
         <Showcase />
         <Performancs />
         <Features />
+        <Highlights />
       </main>
     </ReactLenis>
   )
