@@ -1,5 +1,8 @@
 #features{
     position:relative;
+    .heading-main{
+        text-align:center;
+    }
     .contents{
         position:absolute;
         inset:0;
@@ -32,5 +35,10 @@
     .features-container{
         width: 100%;
         height:100vh;
+    }
+    @media(max-width:768px){
+        .heading-main{
+            text-align:start;
+        }
     }
 }

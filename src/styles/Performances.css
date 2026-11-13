@@ -2,6 +2,7 @@
     height:auto;
     .heading-main{
         cursor:default;
+        text-align:center;
     }
     .wrapper{
         position:relative;
@@ -32,6 +33,9 @@
         text-wrap-style:pretty;
     }
     @media(max-width: 768px){
+        .heading-main{
+            text-align:start;
+        }
         .wrapper{
             height:80svh;
         }

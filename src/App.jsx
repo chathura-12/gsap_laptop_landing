@@ -5,6 +5,7 @@ import Showcase from "./components/Showcase";
 import Performancs from "./components/Performancs";
 import Features from "./components/Features";
 import Highlights from "./components/Highlights";
+import Footer from "./components/Footer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ReactLenis, useLenis } from "lenis/react";
@@ -40,7 +41,7 @@ const App = () => {
     <ReactLenis
       ref={lenisRef}
       root
-      options={{autoRaf:false, lerp: 0.8, duration: 1.2}}>
+      options={{autoRaf:false, lerp: 0.1, duration: 1.2}}>
       <main>
         <LenisScrollTriggerSync />
         <Navbar />
@@ -50,6 +51,7 @@ const App = () => {
         <Performancs />
         <Features />
         <Highlights />
+        <Footer />
       </main>
     </ReactLenis>
   )
